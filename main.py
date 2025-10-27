@@ -9,8 +9,7 @@ st.set_page_config(page_title="Jurisprudencias")
 pg.run()
 
 # Caminho do arquivo JSON
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DATA_FILE = os.path.join(BASE_DIR, "juris.json")
+DATA_FILE = "juris.json"
 
 # Funções para carregar, salvar e excluir dados
 def load_data():
@@ -105,6 +104,7 @@ def show_data():
             st.text("---")
     else:
         st.write("Nenhum registro encontrado.")
+
 
 
 
