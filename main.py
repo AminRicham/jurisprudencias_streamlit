@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import os
 
-create_page = st.Page("add.py", title="Jurisprudências")
+add_page = st.Page("add.py", title="Jurisprudências")
 pg = st.navigation([add_page])
 st.set_page_config(page_title="Jurisprudencias")
 pg.run()
@@ -111,6 +111,7 @@ def fragment_function():
 
 with st.sidebar:
     fragment_function()
+
 
 
 
