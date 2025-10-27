@@ -105,6 +105,8 @@ def fragment_function():
     if st.button("Hi!"):
         st.write("Hi back!")
 
-fragment_function()
+with st.sidebar:
+    fragment_function()
+
 
 
