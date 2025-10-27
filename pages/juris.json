@@ -1,0 +1,89 @@
+{
+  "jurisprudencias": [
+    {
+      "id": "cf77e781-20a8-4c80-9eea-334873cd6b62",
+      "numero": "11/09",
+      "tribunal": "TCE-RJ",
+      "data": "2025-09-11",
+      "tipo": "Acórdão",
+      "relator": "Rodrigo",
+      "assuntos": [
+        "folha de pagamento"
+      ],
+      "palavras": [
+        "nulidade"
+      ],
+      "ementa": "Teste Rodrigo",
+      "link": ""
+    },
+    {
+      "id": "36a76c6e-31bb-41e3-bec7-020551156bb8",
+      "numero": "lll",
+      "tribunal": "TCE-RJ",
+      "data": "2222-01-01",
+      "tipo": "Súmula",
+      "relator": "-",
+      "assuntos": [
+        "Pessoal"
+      ],
+      "palavras": [
+        "addddddd"
+      ],
+      "ementa": "aaaaaa",
+      "link": "-"
+    },
+    {
+      "id": 1,
+      "numero": "Enunciado 12",
+      "tribunal": "TCE-SP",
+      "data": "2018-03-22",
+      "tipo": "Enunciado",
+      "relator": "—",
+      "assuntos": [
+        "Responsabilidade fiscal"
+      ],
+      "palavras": [
+        "limite de despesa com pessoal"
+      ],
+      "ementa": "Parâmetros orientativos para avaliação de limites de despesa com pessoal.",
+      "link": ""
+    },
+    {
+      "id": 2,
+      "numero": "Acórdão 123/2024",
+      "tribunal": "TCE-RJ",
+      "data": "2024-10-31",
+      "tipo": "Acórdão",
+      "relator": "—",
+      "assuntos": [
+        "Pessoal",
+        "Folha de pagamento"
+      ],
+      "palavras": [
+        "adicional noturno",
+        "acumulação",
+        "servidor"
+      ],
+      "ementa": "Processo administrativo. Folha de pagamento. Exame de legalidade de adicionais. Determinações para saneamento de inconsistências.",
+      "link": ""
+    },
+    {
+      "id": 3,
+      "numero": "Súmula 05",
+      "tribunal": "TCU",
+      "data": "2010-06-15",
+      "tipo": "Súmula",
+      "relator": "—",
+      "assuntos": [
+        "Licitações",
+        "Contratos"
+      ],
+      "palavras": [
+        "índice de reajuste",
+        "equilíbrio econômico-financeiro"
+      ],
+      "ementa": "Diretrizes gerais sobre reajuste e repactuação em contratos administrativos.",
+      "link": ""
+    }
+  ]
+}
