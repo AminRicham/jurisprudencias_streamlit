@@ -2,10 +2,12 @@ import streamlit as st
 import json
 import os
 
-add_page = st.Page("add.py", title="Jurisprudências")
+add_page = st.Page("add.py", title="Adicionar jurisprudências")
+
 pg = st.navigation([add_page])
 st.set_page_config(page_title="Jurisprudencias")
 pg.run()
+
 # Caminho do arquivo JSON
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DATA_FILE = os.path.join(BASE_DIR, "juris.json")
@@ -103,15 +105,6 @@ def show_data():
             st.text("---")
     else:
         st.write("Nenhum registro encontrado.")
-
-@st.fragment
-def fragment_function():
-    if st.button("Hi!"):
-        st.write("Hi back!")
-
-with st.sidebar:
-    fragment_function()
-
 
 
 
