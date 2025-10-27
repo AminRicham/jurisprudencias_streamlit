@@ -2,6 +2,10 @@ import streamlit as st
 import json
 import os
 
+create_page = st.Page("add.py", title="Jurisprudências")
+pg = st.navigation([add_page])
+st.set_page_config(page_title="Jurisprudencias")
+pg.run()
 # Caminho do arquivo JSON
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DATA_FILE = os.path.join(BASE_DIR, "juris.json")
@@ -107,6 +111,7 @@ def fragment_function():
 
 with st.sidebar:
     fragment_function()
+
 
 
 
