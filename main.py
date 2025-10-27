@@ -100,6 +100,11 @@ def show_data():
     else:
         st.write("Nenhum registro encontrado.")
 
-with st.sidebar:    
-    show_data()
+@st.fragment
+def fragment_function():
+    if st.button("Hi!"):
+        st.write("Hi back!")
+
+fragment_function()
+
 
