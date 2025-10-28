@@ -4,7 +4,7 @@ import streamlit as st
 if "jurisprudencias" not in st.session_state:
     st.session_state.jurisprudencias = []  # Inicializa como uma lista vazia se não houver dados
 
-# Configuração da página
+# Configuração da página de adicionar
 st.set_page_config(page_title="Adicionar Jurisprudência")
 
 # Cabeçalho da página de adição
@@ -40,5 +40,5 @@ if st.button("Salvar"):
     st.session_state.jurisprudencias.insert(0, rec)  # Adiciona no começo
     st.success("Registro salvo com sucesso!")
 
-# Link para voltar para a página principal
+# Navegação para voltar para a página principal
 st.sidebar.markdown("[Voltar para a lista de jurisprudências](main.py)")
