@@ -1,28 +1,20 @@
 import streamlit as st
-import os
-import json
-import requests
 
-# URL do arquivo JSON no GitHub
-url = "https://github.com/AminRicham/jurisprudencias_streamlit/blob/main/juris.json"
+# Verifica se os dados de jurisprudência estão armazenados no session_state
+if "jurisprudencias" not in st.session_state:
+    st.session_state.jurisprudencias = []  # Inicializa como uma lista vazia se não houver dados
 
-def load_data():
-    """Carrega os dados do arquivo JSON"""
-    try:
-        response = requests.get(url)
-        return response.json()
-    except Exception as e:
-        print(f"Erro ao carregar os dados: {e}")
-        return {"jurisprudencias": []}
-        
-data = load_data()
-
+# Configuração da página
 st.set_page_config(page_title="Gestão de Jurisprudências")
+
+# Cabeçalho da página principal
 st.title("Gestão de Jurisprudências")
+
+# Exibir todas as jurisprudências
 st.subheader("Lista de Jurisprudências")
 
-if data["jurisprudencias"]:
-    for rec in data["jurisprudencias"]:
+if st.session_state.jurisprudencias:
+    for rec in st.session_state.jurisprudencias:
         st.write(f"**Número:** {rec['numero']}")
         st.write(f"**Tribunal:** {rec['tribunal']}")
         st.write(f"**Data:** {rec['data']}")
@@ -36,4 +28,6 @@ if data["jurisprudencias"]:
 else:
     st.write("Nenhum registro encontrado.")
 
-
+# Adicionar link para a página de adição
+st.sidebar.title("Navegação")
+st.sidebar.markdown("[Adicionar Jurisprudência](add.py)")  # Link para a página de adição
