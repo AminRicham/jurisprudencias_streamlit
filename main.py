@@ -1,9 +1,22 @@
 import streamlit as st
 import os
 import json
+import requests
 
-# Caminho para o arquivo JSON (caminho relativo, já que juris.json está na raiz)
-DATA_FILE = os.path.join(os.path.abspath(os.path.dirname(__file__)), "../juris.json")
+# URL do arquivo JSON no GitHub
+url = "https://github.com/AminRicham/jurisprudencias_streamlit/blob/main/juris.json"
+
+def load_data():
+    """Carrega os dados do arquivo JSON"""
+    try:
+        response = requests.get(url)
+        return response.json()
+    except Exception as e:
+        print(f"Erro ao carregar os dados: {e}")
+        return {"jurisprudencias": []}
+        
+# Carregar dados
+data = load_data()
 
 # Função para carregar dados do arquivo JSON
 def load_data():
@@ -39,3 +52,4 @@ if data["jurisprudencias"]:
         st.text("---")  # Separador entre os registros
 else:
     st.write("Nenhum registro encontrado.")
+
