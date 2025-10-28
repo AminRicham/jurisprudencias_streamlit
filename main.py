@@ -15,27 +15,10 @@ def load_data():
         print(f"Erro ao carregar os dados: {e}")
         return {"jurisprudencias": []}
         
-# Carregar dados
 data = load_data()
 
-# Função para carregar dados do arquivo JSON
-def load_data():
-    """Carrega os dados do arquivo JSON"""
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    return {"jurisprudencias": []}
-
-# Carregar dados
-data = load_data()
-
-# Configuração da página (opcional)
 st.set_page_config(page_title="Gestão de Jurisprudências")
-
-# Cabeçalho da página principal
 st.title("Gestão de Jurisprudências")
-
-# Exibir todas as jurisprudências
 st.subheader("Lista de Jurisprudências")
 
 if data["jurisprudencias"]:
@@ -52,4 +35,5 @@ if data["jurisprudencias"]:
         st.text("---")  # Separador entre os registros
 else:
     st.write("Nenhum registro encontrado.")
+
 
