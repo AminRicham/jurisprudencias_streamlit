@@ -1,31 +1,44 @@
-import os
-import json
 import streamlit as st
 
-# Caminho para o arquivo JSON (caminho relativo a partir da pasta "pages")
-DATA_FILE = os.path.join(os.path.dirname(__file__), "../juris.json")
+# Verifica se os dados de jurisprudência estão armazenados no session_state
+if "jurisprudencias" not in st.session_state:
+    st.session_state.jurisprudencias = []  # Inicializa como uma lista vazia se não houver dados
 
-# Funções para carregar, salvar e excluir dados
-def load_data():
-    """Carrega os dados do arquivo JSON"""
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    return {"jurisprudencias": []}
+# Configuração da página
+st.set_page_config(page_title="Adicionar Jurisprudência")
 
-def save_data(data):
-    """Salva os dados no arquivo JSON"""
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+# Cabeçalho da página de adição
+st.title("Adicionar Nova Jurisprudência")
 
-# Carregar dados
-data = load_data()
+# Campos do formulário
+numero = st.text_input("Número", "")
+tribunal = st.text_input("Tribunal", "")
+data_registro = st.date_input("Data")
+tipo = st.text_input("Tipo", "")
+relator = st.text_input("Relator", "")
+assuntos = st.text_input("Assuntos (separados por vírgula)", "")
+palavras = st.text_input("Palavras (separadas por vírgula)", "")
+ementa = st.text_area("Ementa", "")
+link = st.text_input("Link", "")
 
-# Exibir os dados
-st.title("Gestão de Jurisprudências")
-if data["jurisprudencias"]:
-    for rec in data["jurisprudencias"]:
-        st.write(f"**Número:** {rec['numero']}")
-        # Exibir outros dados como você já fez...
-else:
-    st.write("Nenhum registro encontrado.")
+# Lógica para salvar ou atualizar
+if st.button("Salvar"):
+    rec = {
+        "id": numero,  # O id pode ser o número do processo ou um ID único
+        "numero": numero,
+        "tribunal": tribunal,
+        "data": str(data_registro),
+        "tipo": tipo,
+        "relator": relator,
+        "assuntos": [a.strip() for a in assuntos.split(",")],
+        "palavras": [p.strip() for p in palavras.split(",")],
+        "ementa": ementa,
+        "link": link
+    }
+
+    # Adiciona o novo registro à lista de jurisprudências no session_state
+    st.session_state.jurisprudencias.insert(0, rec)  # Adiciona no começo
+    st.success("Registro salvo com sucesso!")
+
+# Link para voltar para a página principal
+st.sidebar.markdown("[Voltar para a lista de jurisprudências](main.py)")
