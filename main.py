@@ -28,6 +28,10 @@ if st.session_state.jurisprudencias:
 else:
     st.write("Nenhum registro encontrado.")
 
-# Adicionar link para a página de adição
+# Navegação entre páginas via sidebar
 st.sidebar.title("Navegação")
-st.sidebar.markdown("[Adicionar Jurisprudência](add.py)")  # Link para a página de adição
+st.sidebar.markdown("### Selecione uma página")
+st.sidebar.radio("Escolha", ["Página Principal", "Adicionar Jurisprudência"], index=0, key="page_navigation")
+
+if st.sidebar.radio("Escolha", ["Página Principal", "Adicionar Jurisprudência"], index=0) == "Adicionar Jurisprudência":
+    st.experimental_rerun()  # Força o carregamento da página de adição
